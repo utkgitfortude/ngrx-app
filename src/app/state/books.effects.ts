@@ -7,11 +7,12 @@ import * as BooksAction from './books.action';
 @Injectable()
 
 export class BookEffects {
-    constructor(private action$: Actions,
-        private googleBookService: GoogleBooksService
+    constructor(public action$: Actions,
+        public googleBookService: GoogleBooksService
     ) { }
     loadBooks$ = createEffect(() => {
-        return this.action$.pipe(
+        // console.log('action in effect',this.action$)
+        return this.action$?.pipe(
             ofType(BooksAction.loadBooks),
             mergeMap(() => this.googleBookService.getBooks().pipe(
             map(books => {return BooksAction.retrievedBookList({ books })})))

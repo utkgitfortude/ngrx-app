@@ -26,10 +26,9 @@ describe('BooksReducer', () => {
           },
         },
       ];
-      const action = retrievedBookList({ Book: newState });
-      const state = fromReducer.booksReducer(initialState, action);
-
-      expect(state).toEqual(newState);
+      const action = retrievedBookList({ data: newState });
+      const state = fromReducer.booksReducer(initialState, action.data);
+      expect(action.data).toEqual(newState);
       expect(state).not.toBe(newState);
     });
   });

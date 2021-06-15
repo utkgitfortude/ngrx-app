@@ -3,7 +3,7 @@ content_copy
   class="book-item"
   *ngFor="let book of books"
 >
-  <p>{{book && book.volumeInfo && book.volumeInfo.title ? book.volumeInfo.title : '' }}</p><span> by {{book && book.volumeInfo && book.volumeInfo.authors ? book.volumeInfo.authors : ''}}</span>
+  <p id="book_title">{{book && book.volumeInfo && book.volumeInfo.title ? book.volumeInfo.title : '' }}</p><span> by {{book && book.volumeInfo && book.volumeInfo.authors ? book.volumeInfo.authors : ''}}</span>
 
   <button
     (click)="add.emit(book.id)"
